@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+models/
+hand_landmarker.task
+Indian Sign Language Gesture Landmarks.csv
+
+dataset - Gesture Speech/
+dataset_ISL/
+ISL Images/
+kaggle_upload_v4/
