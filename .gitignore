@@ -9,3 +9,14 @@ dataset - Gesture Speech/
 dataset_ISL/
 ISL Images/
 kaggle_upload_v4/
+
+# Generated / user-captured datasets (regenerate with data_preparation/ scripts)
+dataset_ISL_cropped/
+dataset_ISL_masked/
+dataset_ISL_fine/
+dataset_ISL_large_masked/
+dataset_skeleton/
+webcam_dataset/
+
+# Tooling caches
+.pytest_cache/

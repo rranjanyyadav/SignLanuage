@@ -1,0 +1,1 @@
+attempt_id,timestamp,target_letter,predicted_letter,is_correct,confidence,status,detected_hands,top1_letter,top1_prob,top2_letter,top2_prob,top3_letter,top3_prob,raw_image_path,processed_image_path,notes

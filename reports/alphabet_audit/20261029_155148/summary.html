@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ISL Alphabet Webcam Audit Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1, h2, h3 { color: #38bdf8; margin-top: 0; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .card { background: #1e293b; padding: 18px; border-radius: 8px; border: 1px solid #334155; }
+  .card .val { font-size: 2rem; font-weight: bold; color: #38bdf8; }
+  .card .sub { font-size: 0.85rem; color: #94a3b8; }
+  .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+  .badge-success { background: #065f46; color: #6ee7b7; }
+  .badge-danger { background: #7f1d1d; color: #fca5a5; }
+  .badge-warning { background: #78350f; color: #fcd34d; }
+  .badge-info { background: #1e3a8a; color: #93c5fd; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 24px; background: #1e293b; border-radius: 8px; overflow: hidden; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; }
+  tr:hover { background: #283548; }
+  .grid-thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
+  .thumb-card { background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 8px; text-align: center; }
+  .thumb-card img { width: 100%; height: 110px; object-fit: contain; background: #000; border-radius: 4px; }
+  .thumb-title { font-weight: bold; font-size: 0.9rem; margin-top: 6px; }
+  .meta-tag { font-size: 0.75rem; color: #94a3b8; }
+  .matrix-table { font-size: 0.75rem; text-align: center; }
+  .matrix-table th, .matrix-table td { padding: 4px 6px; text-align: center; }
+  .mat-hit { background: rgba(16, 185, 129, 0.3); font-weight: bold; color: #10b981; }
+  .mat-err { background: rgba(239, 68, 68, 0.4); font-weight: bold; color: #ef4444; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>ISL Alphabet Webcam Audit Report</h1>
+  <p class="meta-tag">Session: 2026-10-29T15:51:48.439202 | Checkpoint: D:\signlang\models\isl_resnet.pth | Model: RESNET | Mask: True | Grayscale: True</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="val">75.6%</div>
+      <div class="sub">Overall Accuracy (59/78 valid)</div>
+    </div>
+    <div class="card">
+      <div class="val">78 / 78</div>
+      <div class="sub">Attempts Evaluated (Skipped: 0)</div>
+    </div>
+    <div class="card">
+      <div class="val">8 / 26</div>
+      <div class="sub">Letters Needing Attention</div>
+    </div>
+    <div class="card">
+      <div class="val">0</div>
+      <div class="sub">Flagged for Review</div>
+    </div>
+  </div>
+
+  <h2>Letters Needing Attention</h2>
+  <p class="meta-tag">Letters with accuracy under 100%, inconsistent predictions across attempts, or hand-count warnings.</p>
+  <table>
+    <thead><tr><th>Letter</th><th>Type</th><th>Accuracy</th><th>Attempts</th><th>Predictions Across Attempts</th><th>Status</th></tr></thead>
+    <tbody><tr><td><strong>G</strong></td><td>2-Hand</td><td>66.7%</td><td>2/3</td><td>G, X, G</td><td><span class="badge badge-danger">Inconsistent</span></td></tr><tr><td><strong>H</strong></td><td>2-Hand</td><td>0.0%</td><td>0/3</td><td>E, E, E</td><td><span class="badge badge-warning">Low Accuracy</span></td></tr><tr><td><strong>I</strong></td><td>1-Hand</td><td>0.0%</td><td>0/3</td><td>O, O, O</td><td><span class="badge badge-warning">Low Accuracy</span></td></tr><tr><td><strong>N</strong></td><td>2-Hand</td><td>0.0%</td><td>0/3</td><td>M, M, M</td><td><span class="badge badge-warning">Low Accuracy</span></td></tr><tr><td><strong>S</strong></td><td>2-Hand</td><td>33.3%</td><td>1/3</td><td>C, S, C</td><td><span class="badge badge-danger">Inconsistent</span></td></tr><tr><td><strong>T</strong></td><td>2-Hand</td><td>66.7%</td><td>2/3</td><td>O, T, T</td><td><span class="badge badge-danger">Inconsistent</span></td></tr><tr><td><strong>W</strong></td><td>2-Hand</td><td>0.0%</td><td>0/3</td><td>B, B, B</td><td><span class="badge badge-warning">Low Accuracy</span></td></tr><tr><td><strong>X</strong></td><td>2-Hand</td><td>0.0%</td><td>0/3</td><td>J, J, J</td><td><span class="badge badge-warning">Low Accuracy</span></td></tr></tbody></table><h2>Top Confusion Pairs</h2><table><thead><tr><th>True Letter</th><th>Predicted As</th><th>Occurrences</th></tr></thead><tbody><tr><td><strong>H</strong></td><td><strong style='color:#ef4444;'>E</strong></td><td>3</td></tr><tr><td><strong>I</strong></td><td><strong style='color:#ef4444;'>O</strong></td><td>3</td></tr><tr><td><strong>N</strong></td><td><strong style='color:#ef4444;'>M</strong></td><td>3</td></tr><tr><td><strong>W</strong></td><td><strong style='color:#ef4444;'>B</strong></td><td>3</td></tr><tr><td><strong>X</strong></td><td><strong style='color:#ef4444;'>J</strong></td><td>3</td></tr><tr><td><strong>S</strong></td><td><strong style='color:#ef4444;'>C</strong></td><td>2</td></tr><tr><td><strong>G</strong></td><td><strong style='color:#ef4444;'>X</strong></td><td>1</td></tr><tr><td><strong>T</strong></td><td><strong style='color:#ef4444;'>O</strong></td><td>1</td></tr></tbody></table><h2>Full Per-Letter Summary</h2>
+  <table>
+    <thead><tr><th>Letter</th><th>Type</th><th>Valid Attempts</th><th>Correct</th><th>Accuracy</th><th>Consistency</th></tr></thead>
+    <tbody><tr><td><strong>A</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>B</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>C</strong></td><td>1-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>D</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>E</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>F</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>G</strong></td><td>2-Hand</td><td>3</td><td>2</td><td>66.7%</td><td><span class="badge badge-danger">Inconsistent</span></td></tr><tr><td><strong>H</strong></td><td>2-Hand</td><td>3</td><td>0</td><td>0.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>I</strong></td><td>1-Hand</td><td>3</td><td>0</td><td>0.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>J</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>K</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>L</strong></td><td>1-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>M</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>N</strong></td><td>2-Hand</td><td>3</td><td>0</td><td>0.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>O</strong></td><td>1-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>P</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>Q</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>R</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>S</strong></td><td>2-Hand</td><td>3</td><td>1</td><td>33.3%</td><td><span class="badge badge-danger">Inconsistent</span></td></tr><tr><td><strong>T</strong></td><td>2-Hand</td><td>3</td><td>2</td><td>66.7%</td><td><span class="badge badge-danger">Inconsistent</span></td></tr><tr><td><strong>U</strong></td><td>1-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>V</strong></td><td>1-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>W</strong></td><td>2-Hand</td><td>3</td><td>0</td><td>0.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>X</strong></td><td>2-Hand</td><td>3</td><td>0</td><td>0.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>Y</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr><tr><td><strong>Z</strong></td><td>2-Hand</td><td>3</td><td>3</td><td>100.0%</td><td><span class="badge badge-success">Consistent</span></td></tr></tbody></table><h2>Visual Attempt Contact Sheet</h2>
+  <p class="meta-tag">Processed input crops evaluated by the neural network.</p>
+  <div class="grid-thumbs">
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_A/attempt_1_processed.jpg" alt="Attempt A"/>
+      <div class="thumb-title">Target: A</div>
+      <div class="meta-tag">Pred: A (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_A/attempt_2_processed.jpg" alt="Attempt A"/>
+      <div class="thumb-title">Target: A</div>
+      <div class="meta-tag">Pred: A (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_A/attempt_3_processed.jpg" alt="Attempt A"/>
+      <div class="thumb-title">Target: A</div>
+      <div class="meta-tag">Pred: A (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_B/attempt_1_processed.jpg" alt="Attempt B"/>
+      <div class="thumb-title">Target: B</div>
+      <div class="meta-tag">Pred: B (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_B/attempt_2_processed.jpg" alt="Attempt B"/>
+      <div class="thumb-title">Target: B</div>
+      <div class="meta-tag">Pred: B (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_B/attempt_3_processed.jpg" alt="Attempt B"/>
+      <div class="thumb-title">Target: B</div>
+      <div class="meta-tag">Pred: B (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_C/attempt_1_processed.jpg" alt="Attempt C"/>
+      <div class="thumb-title">Target: C</div>
+      <div class="meta-tag">Pred: C (97%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_C/attempt_2_processed.jpg" alt="Attempt C"/>
+      <div class="thumb-title">Target: C</div>
+      <div class="meta-tag">Pred: C (64%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_C/attempt_3_processed.jpg" alt="Attempt C"/>
+      <div class="thumb-title">Target: C</div>
+      <div class="meta-tag">Pred: C (96%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_D/attempt_1_processed.jpg" alt="Attempt D"/>
+      <div class="thumb-title">Target: D</div>
+      <div class="meta-tag">Pred: D (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_D/attempt_2_processed.jpg" alt="Attempt D"/>
+      <div class="thumb-title">Target: D</div>
+      <div class="meta-tag">Pred: D (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_D/attempt_3_processed.jpg" alt="Attempt D"/>
+      <div class="thumb-title">Target: D</div>
+      <div class="meta-tag">Pred: D (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_E/attempt_1_processed.jpg" alt="Attempt E"/>
+      <div class="thumb-title">Target: E</div>
+      <div class="meta-tag">Pred: E (91%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_E/attempt_2_processed.jpg" alt="Attempt E"/>
+      <div class="thumb-title">Target: E</div>
+      <div class="meta-tag">Pred: E (95%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_E/attempt_3_processed.jpg" alt="Attempt E"/>
+      <div class="thumb-title">Target: E</div>
+      <div class="meta-tag">Pred: E (21%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_F/attempt_1_processed.jpg" alt="Attempt F"/>
+      <div class="thumb-title">Target: F</div>
+      <div class="meta-tag">Pred: F (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_F/attempt_2_processed.jpg" alt="Attempt F"/>
+      <div class="thumb-title">Target: F</div>
+      <div class="meta-tag">Pred: F (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_F/attempt_3_processed.jpg" alt="Attempt F"/>
+      <div class="thumb-title">Target: F</div>
+      <div class="meta-tag">Pred: F (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_G/attempt_1_processed.jpg" alt="Attempt G"/>
+      <div class="thumb-title">Target: G</div>
+      <div class="meta-tag">Pred: G (84%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_G/attempt_2_processed.jpg" alt="Attempt G"/>
+      <div class="thumb-title">Target: G</div>
+      <div class="meta-tag">Pred: X (44%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_G/attempt_3_processed.jpg" alt="Attempt G"/>
+      <div class="thumb-title">Target: G</div>
+      <div class="meta-tag">Pred: G (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_H/attempt_1_processed.jpg" alt="Attempt H"/>
+      <div class="thumb-title">Target: H</div>
+      <div class="meta-tag">Pred: E (56%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_H/attempt_2_processed.jpg" alt="Attempt H"/>
+      <div class="thumb-title">Target: H</div>
+      <div class="meta-tag">Pred: E (67%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_H/attempt_3_processed.jpg" alt="Attempt H"/>
+      <div class="thumb-title">Target: H</div>
+      <div class="meta-tag">Pred: E (38%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_I/attempt_1_processed.jpg" alt="Attempt I"/>
+      <div class="thumb-title">Target: I</div>
+      <div class="meta-tag">Pred: O (84%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_I/attempt_2_processed.jpg" alt="Attempt I"/>
+      <div class="thumb-title">Target: I</div>
+      <div class="meta-tag">Pred: O (90%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_I/attempt_3_processed.jpg" alt="Attempt I"/>
+      <div class="thumb-title">Target: I</div>
+      <div class="meta-tag">Pred: O (88%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_J/attempt_1_processed.jpg" alt="Attempt J"/>
+      <div class="thumb-title">Target: J</div>
+      <div class="meta-tag">Pred: J (90%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_J/attempt_2_processed.jpg" alt="Attempt J"/>
+      <div class="thumb-title">Target: J</div>
+      <div class="meta-tag">Pred: J (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_J/attempt_3_processed.jpg" alt="Attempt J"/>
+      <div class="thumb-title">Target: J</div>
+      <div class="meta-tag">Pred: J (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_K/attempt_1_processed.jpg" alt="Attempt K"/>
+      <div class="thumb-title">Target: K</div>
+      <div class="meta-tag">Pred: K (30%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_K/attempt_2_processed.jpg" alt="Attempt K"/>
+      <div class="thumb-title">Target: K</div>
+      <div class="meta-tag">Pred: K (56%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_K/attempt_3_processed.jpg" alt="Attempt K"/>
+      <div class="thumb-title">Target: K</div>
+      <div class="meta-tag">Pred: K (57%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_L/attempt_1_processed.jpg" alt="Attempt L"/>
+      <div class="thumb-title">Target: L</div>
+      <div class="meta-tag">Pred: L (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_L/attempt_2_processed.jpg" alt="Attempt L"/>
+      <div class="thumb-title">Target: L</div>
+      <div class="meta-tag">Pred: L (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_L/attempt_3_processed.jpg" alt="Attempt L"/>
+      <div class="thumb-title">Target: L</div>
+      <div class="meta-tag">Pred: L (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_M/attempt_1_processed.jpg" alt="Attempt M"/>
+      <div class="thumb-title">Target: M</div>
+      <div class="meta-tag">Pred: M (97%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_M/attempt_2_processed.jpg" alt="Attempt M"/>
+      <div class="thumb-title">Target: M</div>
+      <div class="meta-tag">Pred: M (96%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_M/attempt_3_processed.jpg" alt="Attempt M"/>
+      <div class="thumb-title">Target: M</div>
+      <div class="meta-tag">Pred: M (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_N/attempt_1_processed.jpg" alt="Attempt N"/>
+      <div class="thumb-title">Target: N</div>
+      <div class="meta-tag">Pred: M (61%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_N/attempt_2_processed.jpg" alt="Attempt N"/>
+      <div class="thumb-title">Target: N</div>
+      <div class="meta-tag">Pred: M (71%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_N/attempt_3_processed.jpg" alt="Attempt N"/>
+      <div class="thumb-title">Target: N</div>
+      <div class="meta-tag">Pred: M (66%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_O/attempt_1_processed.jpg" alt="Attempt O"/>
+      <div class="thumb-title">Target: O</div>
+      <div class="meta-tag">Pred: O (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_O/attempt_2_processed.jpg" alt="Attempt O"/>
+      <div class="thumb-title">Target: O</div>
+      <div class="meta-tag">Pred: O (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_O/attempt_3_processed.jpg" alt="Attempt O"/>
+      <div class="thumb-title">Target: O</div>
+      <div class="meta-tag">Pred: O (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_P/attempt_1_processed.jpg" alt="Attempt P"/>
+      <div class="thumb-title">Target: P</div>
+      <div class="meta-tag">Pred: P (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_P/attempt_2_processed.jpg" alt="Attempt P"/>
+      <div class="thumb-title">Target: P</div>
+      <div class="meta-tag">Pred: P (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_P/attempt_3_processed.jpg" alt="Attempt P"/>
+      <div class="thumb-title">Target: P</div>
+      <div class="meta-tag">Pred: P (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_Q/attempt_1_processed.jpg" alt="Attempt Q"/>
+      <div class="thumb-title">Target: Q</div>
+      <div class="meta-tag">Pred: Q (16%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_Q/attempt_2_processed.jpg" alt="Attempt Q"/>
+      <div class="thumb-title">Target: Q</div>
+      <div class="meta-tag">Pred: Q (19%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_Q/attempt_3_processed.jpg" alt="Attempt Q"/>
+      <div class="thumb-title">Target: Q</div>
+      <div class="meta-tag">Pred: Q (35%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_R/attempt_1_processed.jpg" alt="Attempt R"/>
+      <div class="thumb-title">Target: R</div>
+      <div class="meta-tag">Pred: R (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_R/attempt_2_processed.jpg" alt="Attempt R"/>
+      <div class="thumb-title">Target: R</div>
+      <div class="meta-tag">Pred: R (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_R/attempt_3_processed.jpg" alt="Attempt R"/>
+      <div class="thumb-title">Target: R</div>
+      <div class="meta-tag">Pred: R (100%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_S/attempt_1_processed.jpg" alt="Attempt S"/>
+      <div class="thumb-title">Target: S</div>
+      <div class="meta-tag">Pred: C (41%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_S/attempt_2_processed.jpg" alt="Attempt S"/>
+      <div class="thumb-title">Target: S</div>
+      <div class="meta-tag">Pred: S (55%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_S/attempt_3_processed.jpg" alt="Attempt S"/>
+      <div class="thumb-title">Target: S</div>
+      <div class="meta-tag">Pred: C (31%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_T/attempt_1_processed.jpg" alt="Attempt T"/>
+      <div class="thumb-title">Target: T</div>
+      <div class="meta-tag">Pred: O (37%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_T/attempt_2_processed.jpg" alt="Attempt T"/>
+      <div class="thumb-title">Target: T</div>
+      <div class="meta-tag">Pred: T (59%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_T/attempt_3_processed.jpg" alt="Attempt T"/>
+      <div class="thumb-title">Target: T</div>
+      <div class="meta-tag">Pred: T (69%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_U/attempt_1_processed.jpg" alt="Attempt U"/>
+      <div class="thumb-title">Target: U</div>
+      <div class="meta-tag">Pred: U (94%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_U/attempt_2_processed.jpg" alt="Attempt U"/>
+      <div class="thumb-title">Target: U</div>
+      <div class="meta-tag">Pred: U (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_U/attempt_3_processed.jpg" alt="Attempt U"/>
+      <div class="thumb-title">Target: U</div>
+      <div class="meta-tag">Pred: U (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_V/attempt_1_processed.jpg" alt="Attempt V"/>
+      <div class="thumb-title">Target: V</div>
+      <div class="meta-tag">Pred: V (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_V/attempt_2_processed.jpg" alt="Attempt V"/>
+      <div class="thumb-title">Target: V</div>
+      <div class="meta-tag">Pred: V (92%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_V/attempt_3_processed.jpg" alt="Attempt V"/>
+      <div class="thumb-title">Target: V</div>
+      <div class="meta-tag">Pred: V (95%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_W/attempt_1_processed.jpg" alt="Attempt W"/>
+      <div class="thumb-title">Target: W</div>
+      <div class="meta-tag">Pred: B (99%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_W/attempt_2_processed.jpg" alt="Attempt W"/>
+      <div class="thumb-title">Target: W</div>
+      <div class="meta-tag">Pred: B (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_W/attempt_3_processed.jpg" alt="Attempt W"/>
+      <div class="thumb-title">Target: W</div>
+      <div class="meta-tag">Pred: B (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_X/attempt_1_processed.jpg" alt="Attempt X"/>
+      <div class="thumb-title">Target: X</div>
+      <div class="meta-tag">Pred: J (65%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_X/attempt_2_processed.jpg" alt="Attempt X"/>
+      <div class="thumb-title">Target: X</div>
+      <div class="meta-tag">Pred: J (52%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#ef4444;">
+      <img src="letter_X/attempt_3_processed.jpg" alt="Attempt X"/>
+      <div class="thumb-title">Target: X</div>
+      <div class="meta-tag">Pred: J (74%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-danger">WRONG</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_Y/attempt_1_processed.jpg" alt="Attempt Y"/>
+      <div class="thumb-title">Target: Y</div>
+      <div class="meta-tag">Pred: Y (97%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_Y/attempt_2_processed.jpg" alt="Attempt Y"/>
+      <div class="thumb-title">Target: Y</div>
+      <div class="meta-tag">Pred: Y (95%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_Y/attempt_3_processed.jpg" alt="Attempt Y"/>
+      <div class="thumb-title">Target: Y</div>
+      <div class="meta-tag">Pred: Y (92%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_Z/attempt_1_processed.jpg" alt="Attempt Z"/>
+      <div class="thumb-title">Target: Z</div>
+      <div class="meta-tag">Pred: Z (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_Z/attempt_2_processed.jpg" alt="Attempt Z"/>
+      <div class="thumb-title">Target: Z</div>
+      <div class="meta-tag">Pred: Z (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+    <div class="thumb-card" style="border-color:#10b981;">
+      <img src="letter_Z/attempt_3_processed.jpg" alt="Attempt Z"/>
+      <div class="thumb-title">Target: Z</div>
+      <div class="meta-tag">Pred: Z (98%)</div>
+      <div style="margin-top:4px;"><span class="badge badge-success">OK</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

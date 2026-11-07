@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "isl-recognition"
+version = "0.2.0"
+description = "Real-time Indian Sign Language alphabet recognition using MediaPipe landmarks, PyTorch MLP, and CNN/ResNet architectures."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "ISL Recognition Team" }
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "mediapipe>=0.10.0",
+    "opencv-python>=4.8.0",
+    "pillow>=10.0.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "scipy>=1.11.0",
+    "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[tool.setuptools]
+packages = ["app", "training", "evaluation", "data_preparation"]

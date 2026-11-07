@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ISL Alphabet Webcam Audit Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1, h2, h3 { color: #38bdf8; margin-top: 0; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .card { background: #1e293b; padding: 18px; border-radius: 8px; border: 1px solid #334155; }
+  .card .val { font-size: 2rem; font-weight: bold; color: #38bdf8; }
+  .card .sub { font-size: 0.85rem; color: #94a3b8; }
+  .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+  .badge-success { background: #065f46; color: #6ee7b7; }
+  .badge-danger { background: #7f1d1d; color: #fca5a5; }
+  .badge-warning { background: #78350f; color: #fcd34d; }
+  .badge-info { background: #1e3a8a; color: #93c5fd; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 24px; background: #1e293b; border-radius: 8px; overflow: hidden; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; }
+  tr:hover { background: #283548; }
+  .grid-thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
+  .thumb-card { background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 8px; text-align: center; }
+  .thumb-card img { width: 100%; height: 110px; object-fit: contain; background: #000; border-radius: 4px; }
+  .thumb-title { font-weight: bold; font-size: 0.9rem; margin-top: 6px; }
+  .meta-tag { font-size: 0.75rem; color: #94a3b8; }
+  .matrix-table { font-size: 0.75rem; text-align: center; }
+  .matrix-table th, .matrix-table td { padding: 4px 6px; text-align: center; }
+  .mat-hit { background: rgba(16, 185, 129, 0.3); font-weight: bold; color: #10b981; }
+  .mat-err { background: rgba(239, 68, 68, 0.4); font-weight: bold; color: #ef4444; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>ISL Alphabet Webcam Audit Report</h1>
+  <p class="meta-tag">Session: 2026-10-29T15:49:42.246749 | Checkpoint: D:\signlang\models\isl_resnet.pth | Model: RESNET | Mask: True | Grayscale: True</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="val">0.0%</div>
+      <div class="sub">Overall Accuracy (0/0 valid)</div>
+    </div>
+    <div class="card">
+      <div class="val">0 / 0</div>
+      <div class="sub">Attempts Evaluated (Skipped: 0)</div>
+    </div>
+    <div class="card">
+      <div class="val">0 / 26</div>
+      <div class="sub">Letters Needing Attention</div>
+    </div>
+    <div class="card">
+      <div class="val">0</div>
+      <div class="sub">Flagged for Review</div>
+    </div>
+  </div>
+
+  <h2>Letters Needing Attention</h2>
+  <p class="meta-tag">Letters with accuracy under 100%, inconsistent predictions across attempts, or hand-count warnings.</p>
+  <p>All evaluated letters achieved 100% agreement!</p><h2>Top Confusion Pairs</h2><p>No cross-class confusions observed!</p><h2>Full Per-Letter Summary</h2>
+  <table>
+    <thead><tr><th>Letter</th><th>Type</th><th>Valid Attempts</th><th>Correct</th><th>Accuracy</th><th>Consistency</th></tr></thead>
+    <tbody><tr><td><strong>A</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>B</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>C</strong></td><td>1-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>D</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>E</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>F</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>G</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>H</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>I</strong></td><td>1-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>J</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>K</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>L</strong></td><td>1-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>M</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>N</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>O</strong></td><td>1-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>P</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>Q</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>R</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>S</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>T</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>U</strong></td><td>1-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>V</strong></td><td>1-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>W</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>X</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>Y</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr><tr><td><strong>Z</strong></td><td>2-Hand</td><td>0</td><td>0</td><td>N/A</td><td><span class="badge badge-info">Skipped</span></td></tr></tbody></table><h2>Visual Attempt Contact Sheet</h2>
+  <p class="meta-tag">Processed input crops evaluated by the neural network.</p>
+  <div class="grid-thumbs">
+  </div>
+</div>
+</body>
+</html>
